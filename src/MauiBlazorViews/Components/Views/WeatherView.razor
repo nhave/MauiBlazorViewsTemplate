@@ -1,0 +1,49 @@
+@layout MainLayout
+
+<h1>Weather</h1>
+
+<p>This component demonstrates showing data.</p>
+
+<p>Was configured: @ViewModel.WasConfigured</p>
+
+@if (ViewModel.Forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th aria-label="Temperature in Celsius">Temp. (C)</th>
+                <th aria-label="Temperature in Fahrenheit">Temp. (F)</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in ViewModel.Forecasts)
+            {
+                <tr>
+                    <td>@forecast.Date.ToShortDateString()</td>
+                    <td>@forecast.TemperatureC</td>
+                    <td>@forecast.TemperatureF</td>
+                    <td>@forecast.Summary</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<button class="btn btn-primary" @onclick="ViewModel.Back">Go Back</button>
+<button class="btn btn-primary" @onclick="ViewModel.BackToHome">Go Home</button>
+
+@code {
+    [Parameter]
+    public WeatherViewModel ViewModel { get; set; } = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ViewModel.LoadWeatherForecastsAsync();
+    }
+}

@@ -1,0 +1,40 @@
+@layout EmptyLayout
+
+<div class="settings-container">
+    <div class="settings-header">
+        <button class="back-button" @onclick="ViewModel.GoBack">←</button>
+        <h1 class="settings-title">@ViewModel.Title</h1>
+    </div>
+
+    <div class="settings-content">
+        <!-- Widget Settings Button -->
+        <button class="settings-button" @onclick="ViewModel.OpenWidgetSettings">
+            <div class="settings-button-content">
+                <div class="settings-icon">⚙️</div>
+                <div class="settings-button-text">
+                    <div class="settings-button-title">Widget Settings</div>
+                    <div class="settings-button-subtitle">Customize your widgets</div>
+                </div>
+            </div>
+            <div class="settings-arrow">›</div>
+        </button>
+
+        <!-- App Settings Button -->
+        <button class="settings-button" @onclick="ViewModel.OpenAppSettings">
+            <div class="settings-button-content">
+                <div class="settings-icon">📱</div>
+                <div class="settings-button-text">
+                    <div class="settings-button-title">App Settings</div>
+                    <div class="settings-button-subtitle">Configure app preferences</div>
+                </div>
+            </div>
+            <div class="settings-arrow">›</div>
+        </button>
+    </div>
+</div>
+
+@code
+{
+    [Parameter]
+    public SettingsViewModel ViewModel { get; set; } = null!;
+}

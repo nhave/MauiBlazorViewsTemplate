@@ -1,0 +1,19 @@
+@layout MainLayout
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<p>Test: @ViewModel.TestBool</p>
+
+<button class="btn btn-primary" @onclick="ViewModel.Test">Test</button>
+
+<button class="btn btn-primary" @onclick="ViewModel.OpenCounter">Open Counter</button>
+<button class="btn btn-primary" @onclick="ViewModel.OpenWeather">Open Weather</button>
+<button class="btn btn-primary" @onclick="ViewModel.OpenSettings">Open Settings</button>
+
+@code
+{
+    [Parameter]
+    public MainViewModel ViewModel { get; set; } = null!;
+}

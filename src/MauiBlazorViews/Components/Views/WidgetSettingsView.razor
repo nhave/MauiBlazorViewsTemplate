@@ -1,0 +1,52 @@
+@layout EmptyLayout
+
+<div class="settings-container">
+    <div class="settings-header">
+        <button class="back-button" @onclick="ViewModel.GoBack">←</button>
+        <h1 class="settings-title">@ViewModel.Title</h1>
+    </div>
+
+    <div class="settings-content">
+        <div class="settings-section">
+            <div class="settings-section-title">Widget Options</div>
+
+            <div class="settings-item">
+                <div class="settings-item-label">Widget Size</div>
+                <select class="settings-select">
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                </select>
+            </div>
+
+            <div class="settings-item">
+                <div class="settings-item-label">Auto Refresh</div>
+                <input type="checkbox" class="settings-checkbox" checked />
+            </div>
+
+            <div class="settings-item">
+                <div class="settings-item-label">Refresh Interval (seconds)</div>
+                <input type="number" class="settings-input" value="30" min="5" max="300" />
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <div class="settings-section-title">Appearance</div>
+
+            <div class="settings-item">
+                <div class="settings-item-label">Theme</div>
+                <select class="settings-select">
+                    <option>Light</option>
+                    <option>Dark</option>
+                    <option>Auto</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code
+{
+    [Parameter]
+    public WidgetSettingsViewModel ViewModel { get; set; } = null!;
+}

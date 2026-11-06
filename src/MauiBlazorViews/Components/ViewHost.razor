@@ -1,0 +1,5 @@
+@if (CurrentViewType != null && CurrentLayoutType != null)
+{
+    <DynamicComponent Type="CurrentLayoutType"
+                      Parameters="@GetLayoutParameters()" />
+}

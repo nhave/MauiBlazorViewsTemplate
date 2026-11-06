@@ -1,0 +1,15 @@
+@layout MainLayout
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @ViewModel.CurrentCount</p>
+
+<button class="btn btn-primary" @onclick="ViewModel.IncrementCount">Click me</button>
+
+<button class="btn btn-primary" @onclick="ViewModel.Back">Go Back</button>
+<button class="btn btn-primary" @onclick="ViewModel.OpenWeather">Open Weather</button>
+
+@code {
+    [Parameter]
+    public CounterViewModel ViewModel { get; set; } = null!;
+}

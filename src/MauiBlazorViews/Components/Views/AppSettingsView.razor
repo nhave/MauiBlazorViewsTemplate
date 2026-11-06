@@ -1,0 +1,63 @@
+@layout EmptyLayout
+
+<div class="settings-container">
+    <div class="settings-header">
+        <button class="back-button" @onclick="ViewModel.GoBack">←</button>
+        <h1 class="settings-title">@ViewModel.Title</h1>
+    </div>
+
+    <div class="settings-content">
+        <div class="settings-section">
+            <div class="settings-section-title">General</div>
+
+            <div class="settings-item">
+                <div class="settings-item-label">App Version</div>
+                <div class="settings-item-value">1.0.0</div>
+            </div>
+
+            <div class="settings-item">
+                <div class="settings-item-label">Check for Updates</div>
+                <button class="settings-button-small">Check</button>
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <div class="settings-section-title">Notifications</div>
+
+            <div class="settings-item">
+                <div class="settings-item-label">Enable Notifications</div>
+                <input type="checkbox" class="settings-checkbox" checked />
+            </div>
+
+            <div class="settings-item">
+                <div class="settings-item-label">Sound</div>
+                <input type="checkbox" class="settings-checkbox" checked />
+            </div>
+
+            <div class="settings-item">
+                <div class="settings-item-label">Vibration</div>
+                <input type="checkbox" class="settings-checkbox" checked />
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <div class="settings-section-title">About</div>
+
+            <div class="settings-item">
+                <div class="settings-item-label">Developer</div>
+                <div class="settings-item-value">Your Name</div>
+            </div>
+
+            <div class="settings-item">
+                <div class="settings-item-label">License</div>
+                <button class="settings-button-small">View</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code
+{
+    [Parameter]
+    public AppSettingsViewModel ViewModel { get; set; } = null!;
+}
